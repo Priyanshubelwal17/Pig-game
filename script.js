@@ -9,7 +9,7 @@ const current0E1 = document.getElementById('current--0');
 const current1E1 = document.getElementById('current--1');
 
 const diceE1 = document.querySelector('.dice');
-const btnNew = document.querySelector('.btn-roll');
+const btnNew = document.querySelector('.btn--new');
 const btnROll = document.querySelector('.btn--roll');
 const btnhold = document.querySelector('.btn--hold');
 
@@ -34,6 +34,7 @@ let activePlayer = 0;
 
 // Rolling dice functionality
 btnROll.addEventListener('click', function () {
+  console.log(3);
   if (playing) {
     //  1. Generating a random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
@@ -77,4 +78,20 @@ btnhold.addEventListener('click', function () {
       swtichPlayer();
     }
   }
+});
+
+btnNew.addEventListener('click', function () {
+  currentScore = 0;
+  playing = true;
+  diceE1.classList.add('hidden');
+  document.getElementById('current--0').textContent = currentScore;
+  document.getElementById('current--1').textContent = currentScore;
+  document.getElementById('score--0').textContent = 0;
+  document.getElementById('score--1').textContent = 0;
+
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--winner');
+
+  document.querySelector(`.player--0`).classList.add('player--active');
 });
