@@ -256,16 +256,19 @@ main {
 }
 
 .show-modal {
-  background-color: #ff4757; /* Bright red color for visibility */
-  color: #fff; /* White text for contrast */
-  border: none; /* No border for a clean look */
-  border-radius: 50px; /* Rounder shape for a modern look */
-  padding: 12px 24px; /* Decent padding for a proper size */
-  font-size: 18px; /* Larger text for readability */
-  font-weight: bold; /* Bold text for better emphasis */
-  cursor: pointer; /* Cursor pointer for clickable feel */
+  position: fixed; /* Fixed position se button screen ke fixed point pe rahega */
+  bottom: 2rem; /* Niche se distance (footer ke paas) */
+  right: 2rem; /* Right side pe corner mein shift */
+  background-color: #ff4757; /* Bright red for better visibility */
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for 3D effect */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth effect */
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .show-modal:hover {
