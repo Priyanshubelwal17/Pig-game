@@ -8,6 +8,10 @@ const score1El = document.querySelector('#score--1');
 const current0E1 = document.getElementById('current--0');
 const current1E1 = document.getElementById('current--1');
 
+const overlay = document.querySelector('.overlay');
+const modal = document.querySelector('.modal');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnOpenModal = document.querySelector('.show-modal');
 const diceE1 = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnROll = document.querySelector('.btn--roll');
@@ -41,6 +45,18 @@ const init = function () {
   winnerMessage.classList.add('hidden');
 };
 init();
+
+// Modal ko open karne ka function
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+// Modal ko close karne ka function
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
 
 // Starting conditions
 score0El.textContent = 0;
@@ -78,7 +94,7 @@ btnhold.addEventListener('click', function () {
       scores[activePlayer];
 
     // 2. Check if player's score is >=100
-    if (scores[activePlayer] >= 10 || currentScore >= 10) {
+    if (scores[activePlayer] >= 100) {
       // Finish the game
       diceE1.classList.add('hidden');
       document
@@ -98,3 +114,9 @@ btnhold.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', init);
+
+btnOpenModal.addEventListener('click', openModal);
+
+btnCloseModal.addEventListener('click', closeModal);
+
+overlay.addEventListener('click', closeModal);
